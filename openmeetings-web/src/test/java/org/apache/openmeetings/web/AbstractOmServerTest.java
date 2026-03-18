@@ -21,11 +21,8 @@ package org.apache.openmeetings.web;
 import static java.util.UUID.randomUUID;
 import static org.apache.openmeetings.db.util.ApplicationHelper.ensureApplication;
 import static org.apache.openmeetings.util.OpenmeetingsVariables.DEFAULT_CONTEXT_NAME;
-import static org.apache.openmeetings.util.OpenmeetingsVariables.getCryptClassName;
 import static org.apache.openmeetings.util.OpenmeetingsVariables.getWicketApplicationName;
 import static org.apache.openmeetings.util.OpenmeetingsVariables.setWicketApplicationName;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Date;
 import java.util.Random;
@@ -37,12 +34,11 @@ import org.apache.openmeetings.db.dao.user.GroupDao;
 import org.apache.openmeetings.db.dao.user.UserDao;
 import org.apache.openmeetings.db.entity.calendar.Appointment;
 import org.apache.openmeetings.db.entity.room.Room;
-import org.apache.openmeetings.db.entity.user.Address;
 import org.apache.openmeetings.db.entity.user.User;
 import org.apache.openmeetings.installation.ImportInitvalues;
-import org.apache.openmeetings.installation.InstallationConfig;
 import org.apache.openmeetings.web.app.Application;
-import org.apache.openmeetings.util.OmFileHelper;
+import org.apache.openmeetings.web.util.EntityHelper;
+import org.apache.openmeetings.web.util.OmTestHelper;
 import org.apache.tomcat.util.scan.Constants;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -54,20 +50,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 
 import jakarta.inject.Inject;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @SpringJUnitWebConfig(locations={"classpath:applicationContext.xml"})
 @RegularTest
 public abstract class AbstractOmServerTest {
 	private static final Logger log = LoggerFactory.getLogger(AbstractOmServerTest.class);
-	private static final String TIME_ZONE = "Europe/Berlin";
-	public static final int ONE_HOUR = 60 * 60 * 1000;
-	public static final String ADMIN_USERNAME = "admin";
-	public static final String REGULAR_USERNAME = "user";
-	public static final String SOAP_USERNAME = "soap";
-	protected static final String GROUP_ADMIN_USERNAME = "groupAdmin";
-	public static final String USER_PASS = "Q!w2e3r4t5";
-	public static final String GROUP = "smoketest";
-	public static final String EMAIL = "junit@openmeetings.apache.org";
+	public static final int ONE_HOUR = EntityHelper.ONE_HOUR;
+	public static final String ADMIN_USERNAME = OmTestHelper.ADMIN_USERNAME;
+	public static final String REGULAR_USERNAME = OmTestHelper.REGULAR_USERNAME;
+	public static final String SOAP_USERNAME = OmTestHelper.SOAP_USERNAME;
+	protected static final String GROUP_ADMIN_USERNAME = OmTestHelper.GROUP_ADMIN_USERNAME;
+	public static final String USER_PASS = OmTestHelper.USER_PASS;
+	public static final String GROUP = OmTestHelper.GROUP;
+	public static final String EMAIL = OmTestHelper.EMAIL;
 	public static final String UNIT_TEST_ARAB_EXT_TYPE = "النُّجُومُ الخَمْسَةِ";
 	public static final Random RND = new Random();
 
@@ -94,17 +90,6 @@ public abstract class AbstractOmServerTest {
 		}
 	}
 
-	public static String getTestCoordinates(TestInfo testInfo) {
-		String meth = testInfo.getTestMethod().map(m -> m.getName()).orElse("method n/a");
-		String res = testInfo.getTestClass().map(c -> c.getSimpleName()).orElse("class n/a") + ".";
-		if (testInfo.getDisplayName().contains(meth)) {
-			res += testInfo.getDisplayName();
-		} else {
-			res += meth + testInfo.getDisplayName();
-		}
-		return res;
-	}
-
 	@BeforeEach
 	public void serverSetup(TestInfo testInfo) throws Exception {
 		if (app.getName() == null) {
@@ -115,30 +100,24 @@ public abstract class AbstractOmServerTest {
 		}
 		ensureApplication();
 		ensureSchema(userDao, importInitvalues);
-		log.info("Test started: {} ---", getTestCoordinates(testInfo));
+		log.info("Test started: {} ---", OmTestHelper.getTestCoordinates(testInfo));
 	}
 
 	@AfterEach
 	void tearDown(TestInfo testInfo) {
-		log.info(" --- test finished: {}", getTestCoordinates(testInfo));
+		log.info(" --- test finished: {}", OmTestHelper.getTestCoordinates(testInfo));
 	}
 
 	public static void setOmHome() {
-		String webappsDir = System.getProperty("om.home", ".");
-		OmFileHelper.setOmHome(webappsDir);
-		if (!OmFileHelper.getOmHome().exists() || !OmFileHelper.getOmHome().isDirectory()) {
-			fail("Invalid directory is specified as OM HOME: " + webappsDir);
-		}
+		OmTestHelper.setOmHome();
 	}
 
 	public static void ensureSchema(UserDao userDao, ImportInitvalues importInitvalues) throws Exception {
-		if (userDao.count() < 1) {
-			makeDefaultScheme(importInitvalues);
-			log.info("Default scheme created successfully");
-		} else {
-			log.info("Default scheme already created");
-		}
-		assertNotNull(getCryptClassName(), "Crypt class name should not be null");
+		OmTestHelper.ensureSchema(userDao, importInitvalues);
+	}
+
+	public static String getTestCoordinates(TestInfo testInfo) {
+		return OmTestHelper.getTestCoordinates(testInfo);
 	}
 
 	public Appointment getAppointment() {
@@ -157,45 +136,11 @@ public abstract class AbstractOmServerTest {
 	}
 
 	public static Appointment getAppointment(User owner, Room r, Date start, Date end) {
-		// add new appointment
-		Appointment ap = new Appointment();
-
-		ap.setTitle("appointmentName");
-		ap.setLocation("appointmentLocation");
-
-		ap.setStart(start);
-		ap.setEnd(end);
-		ap.setDescription("appointmentDescription");
-		ap.setInserted(new Date());
-		ap.setDeleted(false);
-		ap.setIsDaily(false);
-		ap.setIsWeekly(false);
-		ap.setIsMonthly(false);
-		ap.setIsYearly(false);
-		ap.setPasswordProtected(false);
-
-		ap.setOwner(owner);
-		ap.setConnectedEvent(false);
-
-		if (ap.getReminder() == null) {
-			ap.setReminder(Appointment.Reminder.NONE);
-		}
-
-		if (r == null) {
-			r = new Room();
-			r.setType(Room.Type.CONFERENCE);
-			r.setAppointment(true);
-		}
-		ap.setRoom(r);
-		return ap;
+		return EntityHelper.getAppointment(owner, r, start, end);
 	}
 
 	public static Appointment createAppointment(AppointmentDao appointmentDao, Appointment ap) {
-		assertNotNull(appointmentDao, "Can't access to appointment dao implimentation");
-		// add new appointment
-		ap = appointmentDao.update(ap, null, false);
-		assertNotNull(ap.getId(), "Can't add appointment");
-		return ap;
+		return EntityHelper.createAppointment(appointmentDao, ap);
 	}
 
 	public Appointment createAppointment(Appointment ap) {
@@ -207,30 +152,19 @@ public abstract class AbstractOmServerTest {
 	}
 
 	protected static String getLogin(String uid) {
-		return "login" + uid;
+		return EntityHelper.getLogin(uid);
 	}
 
 	protected static String getEmail(String uid) {
-		return String.format("email%s@local", uid);
+		return EntityHelper.getEmail(uid);
 	}
 
 	public static String createPass() {
-		return "pass1_!@#$%_A";
+		return EntityHelper.createPass();
 	}
 
 	public static User getUser(String uuid) throws Exception {
-		User u = new User();
-		// add user
-		u.setFirstname("firstname" + uuid);
-		u.setLastname("lastname" + uuid);
-		u.setLogin(getLogin(uuid));
-		u.setAddress(new Address());
-		u.getAddress().setEmail(getEmail(uuid));
-		u.setRights(UserDao.getDefaultRights());
-		u.setTimeZoneId("Asia/Bangkok");
-		u.updatePassword(createPass());
-		u.setLanguageId(1L);
-		return u;
+		return EntityHelper.getUser(uuid);
 	}
 
 	public User createUser() throws Exception {
@@ -242,39 +176,15 @@ public abstract class AbstractOmServerTest {
 	}
 
 	public static User createUser(UserDao userDao, User u) {
-		u = userDao.update(u, null);
-		assertNotNull(u, "Can't add user");
-		return u;
+		return EntityHelper.createUser(userDao, u);
 	}
 
 	public User createUser(User u) {
 		return createUser(userDao, u);
 	}
 
-	private static void makeDefaultScheme(ImportInitvalues importInitvalues) throws Exception {
-		InstallationConfig cfg = new InstallationConfig();
-		cfg.setUsername(ADMIN_USERNAME);
-		cfg.setPassword(USER_PASS);
-		cfg.setEmail(EMAIL);
-		cfg.setGroup(GROUP);
-		cfg.setTimeZone(TIME_ZONE);
-		importInitvalues.loadAll(cfg, false);
-		// regular user
-		importInitvalues.createSystemUser(getUser(randomUUID().toString()), GROUP, REGULAR_USERNAME, USER_PASS, false, null);
-
-		// soap user
-		importInitvalues.createSystemUser(getUser(randomUUID().toString()), GROUP, SOAP_USERNAME, USER_PASS, false, u -> {
-			u.getRights().remove(User.Right.ROOM);
-			u.getRights().remove(User.Right.DASHBOARD);
-			u.getRights().add(User.Right.SOAP);
-		});
-
-		// group admin
-		importInitvalues.createSystemUser(getUser(randomUUID().toString()), GROUP, GROUP_ADMIN_USERNAME, USER_PASS, true, null);
-	}
-
 	public User getContact(String uuid, Long ownerId) {
-		return userDao.getContact("email" + uuid, "firstname" + uuid, "lastname" + uuid, ownerId);
+		return EntityHelper.getContact(userDao, uuid, ownerId);
 	}
 
 	public User createUserContact(Long ownerId) {
@@ -282,8 +192,6 @@ public abstract class AbstractOmServerTest {
 	}
 
 	public User createUserContact(User user, Long ownerId) {
-		user = userDao.update(user, ownerId);
-		assertNotNull(user, "Cann't add user");
-		return user;
+		return EntityHelper.createUserContact(userDao, user, ownerId);
 	}
 }
