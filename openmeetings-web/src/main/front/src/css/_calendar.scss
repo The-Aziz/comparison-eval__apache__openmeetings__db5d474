@@ -1,0 +1,42 @@
+/* Licensed under the Apache License, Version 2.0 (the "License") http://www.apache.org/licenses/LICENSE-2.0 */
+#contents #calendar .fc-gotoBtn-button::before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	content: "\f133";
+	font-size: 1em;
+}
+.calendarlist {
+	padding: 0;
+
+	li {
+		list-style-type: none;
+		margin: 0.3em;
+
+		input {
+			width: 100%;
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+}
+#calendarlistcontainer {
+	width: 20%;
+	display: inline-block;
+	overflow-y: auto;
+}
+#wrapper-panel-frame {
+	display: inline-block;
+	width: 80%;
+	height: 100%;
+}
+#wrapper-panel-frame .main-form, #calendar {
+	height: 100%;
+}
+/* bootstrap override */
+.table-bordered {
+	border: 1px solid #dee2e6;
+
+	td, th {
+		border: 1px solid #dee2e6;
+	}
+}

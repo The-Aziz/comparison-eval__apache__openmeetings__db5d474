@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Call For Logo</title>
+		<author email="dev@openmeetings.apache.org">Apache OpenMeetings Team</author>
+	</properties>
+	<body>
+		<section name="OpenMeetings Call For Logo">
+			<p>
+				As you may know, Apache Openmeetings is part of the Apache Software Foundation, which is a non-profit organization.
+				In order to celebrate The Apache Software Foundation's 15th Anniversary and promote the ASF's more than 200 projects,
+				Apache has launched an effort to get folks who use Apache projects to note that by including one or more of the newly-designed
+				"Powered By Apache" logos on their websites, documentation, marketing materials, etc.<br/><br/>
+
+				Guidelines for use are available here: <a href="http://apache.org/foundation/press/kit/">http://apache.org/foundation/press/kit</a><br/><br/>
+
+				Unfortunately we have no suitable logo for this :(<br/><br/>
+
+				This page is designed to test all proposed logo and choose the best one
+			</p>
+			<p>
+				Please send your logos and opinions to <a href="mailing-lists.html">user@ mail list</a> (you need to subscribe first)<br/>
+				Thanks in advance :)
+			</p>
+			<div id="before-preview"></div>
+		</section>
+		<section name="Preview">
+			<div class="powered-preview">
+				<div class='powered-preview-logo'></div>
+			</div>
+		</section>
+		<section name="Logos">
+			<h3>Big version</h3>
+			<ol>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logo.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Denis Kandrov</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big3.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Vital Trizna</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big4.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Vital Trizna</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big5.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Vital Trizna</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big6.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Daniel Baker</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big7.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Kristopher Herrick</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big8.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Rick Irish</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big9.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Lauro M. Atienza</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-big" src="images/logos/logo_om_big1.png" alt="Apache OpenMeetings"/></td>
+							<td><span class="btn btn-primary btn-logo-big">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Thomas Scholzen</td>
+						</tr>
+					</table>
+				</li>
+			</ol>
+			<h3>Square version</h3>
+			<ol>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om1.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Denis Kandrov</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small3.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Vital Trizna</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small4.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Vital Trizna</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small6.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Johan Strombom</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small7.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Amir Januzaj</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small8.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Alexander J. Tanchoco</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small9.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Daniel Baker</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small10.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Tharrrk</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small11.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Kristopher Herrick</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small12.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Rick Irish</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small13.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Lauro M. Atienza</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img class="logo-square" src="images/logos/logo_om_small1.png" alt="Square version" width="50"/></td>
+							<td><span class="btn btn-primary btn-logo-small">Apply</span></td>
+						</tr>
+						<tr>
+							<td>Author</td>
+							<td>Thomas Scholzen</td>
+						</tr>
+					</table>
+				</li>
+			</ol>
+			<script type="text/javascript">
+			//<![CDATA[
+				function applyLogoBig() {
+					var ib = $(this).closest('table').find('.logo-big');
+					var bi = $('.bannerLeft img');
+					bi.attr('src', ib.attr('src'));
+					$(window).scrollTop(0);
+				}
+				function applyLogoSmall() {
+					var l = $('.powered-preview .powered-preview-logo');
+					var ib = $(this).closest('table').find('.logo-square');
+					l.css('background-image', 'url(' + ib.attr('src') + ')');
+					$('#before-preview')[0].scrollIntoView();
+				}
+				document.addEventListener("DOMContentLoaded", function() {
+					$('.btn-logo-big').click(applyLogoBig);
+					$('.btn-logo-small').click(applyLogoSmall);
+				});
+			//]]>
+			</script>
+		</section>
+	</body>
+</document>

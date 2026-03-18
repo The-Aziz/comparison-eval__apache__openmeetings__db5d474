@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<fieldset class="" id="userConf1">
+		<legend class="text-end"><wicket:message key="install.wizard.params.step3.converters"/></legend>
+		<div class="formelement">
+			<label wicket:for="docDpi" class="col-3 text-right"><wicket:message key="install.wizard.params.step3.docDpi"/>
+				<i class="fas fa-info-circle m-1 text-info om-tooltip" wicket:message="title:install.wizard.params.step3.docDpi.text,alt:install.wizard.params.step3.docDpi.text"></i>
+			</label>
+			<input wicket:id="docDpi" wicket:message="title:install.wizard.params.step3.docDpi.title" type="text" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="docQuality" class="col-3 text-right"><wicket:message key="install.wizard.params.step3.docQuality"/>
+				<i class="fas fa-info-circle m-1 text-info om-tooltip" wicket:message="title:install.wizard.params.step3.docQuality.text,alt:install.wizard.params.step3.docQuality.text"></i>
+			</label>
+			<input wicket:id="docQuality" wicket:message="title:install.wizard.params.step3.docQuality.title" type="text" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="imageMagicPath" class="col-3 text-right"><wicket:message key="install.wizard.params.step3.imageMagicPath"/>
+				<i class="fas fa-info-circle m-1 text-info om-tooltip" wicket:message="title:install.wizard.params.step3.imageMagicPath.text,alt:install.wizard.params.step3.imageMagicPath.text"></i>
+			</label>
+			<input wicket:id="imageMagicPath" wicket:message="title:install.wizard.params.step3.imageMagicPath.title" type="text" class="col-3"/>
+			<button class="formelement" wicket:id="validateImageMagic"></button>
+		</div>
+		<div class="formelement">
+			<label wicket:for="ffmpegPath" class="col-3 text-right"><wicket:message key="install.wizard.params.step3.ffmpegPath"/>
+				<i class="fas fa-info-circle m-1 text-info om-tooltip" wicket:message="title:install.wizard.params.step3.ffmpegPath.text,alt:install.wizard.params.step3.ffmpegPath.text"></i>
+			</label>
+			<input wicket:id="ffmpegPath" wicket:message="title:install.wizard.params.step3.ffmpegPath.title" type="text" class="col-3"/>
+			<button class="formelement" wicket:id="validateFfmpeg"></button>
+		</div>
+		<div class="formelement">
+			<label wicket:for="soxPath" class="col-3 text-right"><wicket:message key="install.wizard.params.step3.soxPath"/>
+				<i class="fas fa-info-circle m-1 text-info om-tooltip" wicket:message="title:install.wizard.params.step3.soxPath.text,alt:install.wizard.params.step3.soxPath.text"></i>
+			</label>
+			<input wicket:id="soxPath" wicket:message="title:install.wizard.params.step3.soxPath.title" type="text" class="col-3"/>
+			<button class="formelement" wicket:id="validateSox"></button>
+		</div>
+		<div class="formelement">
+			<label wicket:for="officePath" class="col-3 text-right"><wicket:message key="install.wizard.params.step3.officePath"/>
+				<i class="fas fa-info-circle m-1 text-info om-tooltip" wicket:message="title:install.wizard.params.step3.officePath.text,alt:install.wizard.params.step3.officePath.text"></i>
+			</label>
+			<input wicket:id="officePath" wicket:message="title:install.wizard.params.step3.officePath.title" type="text" class="col-3"/>
+			<button class="formelement" wicket:id="validateOffice"></button>
+		</div>
+		<div class="formelement">
+			<p>
+				<em>
+					<wicket:message key="install.wizard.params.step3.seeAlso"/> <a
+					href="https://openmeetings.apache.org/installation.html"
+					rel="noopener noreferrer" target="_blank"><wicket:message key="install.wizard.installation"/></a>
+				</em>
+			</p>
+		</div>
+	</fieldset>
+</wicket:panel>
+</html>

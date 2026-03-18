@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<fieldset class="" id="userConf">
+		<legend class="text-end"><wicket:message key="install.wizard.params.step2.configuration"/></legend>
+		<div class="formelement">
+			<label wicket:for="allowFrontendRegister" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.allowFrontendRegister"/></label>
+			<div class="onoffswitch">
+				<input type="checkbox" class="onoff-checkbox" wicket:id="allowFrontendRegister"/>
+				<label class="onoff-label" wicket:for="allowFrontendRegister"></label>
+			</div>
+		</div>
+		<div class="formelement">
+			<label wicket:for="sendEmailAtRegister" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.sendEmailAtRegister"/></label>
+			<div class="onoffswitch">
+				<input type="checkbox" class="onoff-checkbox" wicket:id="sendEmailAtRegister"/>
+				<label class="onoff-label" wicket:for="sendEmailAtRegister"></label>
+			</div>
+		</div>
+		<div class="formelement">
+			<label wicket:for="sendEmailWithVerficationCode" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.sendEmailWithVerficationCode"/></label>
+			<div class="onoffswitch">
+				<input type="checkbox" class="onoff-checkbox" wicket:id="sendEmailWithVerficationCode"/>
+				<label class="onoff-label" wicket:for="sendEmailWithVerficationCode"></label>
+			</div>
+		</div>
+		<div class="formelement">
+			<label wicket:for="createDefaultObjects" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.createDefaultObjects"/></label>
+			<div class="onoffswitch">
+				<input type="checkbox" class="onoff-checkbox" wicket:id="createDefaultObjects"/>
+				<label class="onoff-label" wicket:for="createDefaultObjects"></label>
+			</div>
+		</div>
+		<div class="formelement">
+			<label wicket:for="mailReferer" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.mailReferer"/></label>
+			<input wicket:id="mailReferer" wicket:message="title:install.wizard.params.step2.mailReferer.title" type="text" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="smtpServer" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.smtpServer"/></label>
+			<input wicket:id="smtpServer" wicket:message="title:install.wizard.params.step2.smtpServer.title" type="text" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="smtpPort" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.smtpPort"/></label>
+			<input wicket:id="smtpPort" wicket:message="title:install.wizard.params.step2.smtpPort.title" type="text" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="mailAuthName" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.mailAuthName"/></label>
+			<input wicket:id="mailAuthName" wicket:message="title:install.wizard.params.step2.mailAuthName.title" type="text" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="mailAuthPass" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.mailAuthPass"/></label>
+			<input wicket:id="mailAuthPass" wicket:message="title:install.wizard.params.step2.mailAuthPass.title" type="password" class="col-3"/>
+		</div>
+		<div class="formelement">
+			<label wicket:for="mailUseTls" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.mailUseTls"/></label>
+			<div class="onoffswitch">
+				<input type="checkbox" class="onoff-checkbox" wicket:id="mailUseTls"/>
+				<label class="onoff-label" wicket:for="mailUseTls"></label>
+			</div>
+		</div>
+		<div class="formelement">
+			<label wicket:for="replyToOrganizer" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.replyToOrganizer"/></label>
+			<div class="onoffswitch">
+				<input type="checkbox" class="onoff-checkbox" wicket:id="replyToOrganizer"/>
+				<label class="onoff-label" wicket:for="replyToOrganizer"></label>
+			</div>
+		</div>
+		<div class="formelement">
+			<label wicket:for="defaultLangId" class="col-3 text-right"><wicket:message key="install.wizard.params.step2.defaultLangId"/></label>
+			<select wicket:id="defaultLangId" class="form-select col-3"></select>
+		</div>
+	</fieldset>
+</wicket:panel>
+</html>

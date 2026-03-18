@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<div class="usergroupspanel">
+		<div class="adminNav" wicket:id="navigator">[dataview navigator]</div>
+		<table class="list-table small table table-striped table-hover">
+			<thead>
+				<tr>
+					<th class="col-1" wicket:message="title:98"><wicket:message key="98" /></th>
+					<th class="col-10" ><wicket:message key="177" /></th>
+					<th class="col-1"><wicket:message key="275" /></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr wicket:id="userList" class="">
+					<td class="col-1"><input type="checkbox" wicket:id="isModerator"/></td>
+					<td class="col-10"><div class="col-wrapper"><span wicket:id="new"/><span wicket:id="label"></span></div></td>
+					<td class="col-1">
+						<button wicket:id="deleteUserBtn" wicket:message="title:274" class="btn-sm p-0 px-2"></button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</wicket:panel>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd"
+		name="Apache OpenMeetings Project">
+	<bannerLeft>
+		<title>Apache OpenMeetings</title>
+		<alt>Apache OpenMeetings</alt>
+		<src>https://openmeetings.apache.org/images/logo.png</src>
+		<href>https://openmeetings.apache.org/index.html</href>
+	</bannerLeft>
+	<bannerRight>
+		<title>Apache</title>
+		<alt>Apache</alt>
+		<src>https://apache.org/img/asf_logo.png</src>
+		<href>https://apache.org</href>
+	</bannerRight>
+
+	<skin>
+		<groupId>io.github.devacfr.maven.skins</groupId>
+		<artifactId>reflow-maven-skin</artifactId>
+		<version>${reflow-maven-skin.version}</version>
+	</skin>
+
+	<version position="none"/>
+
+	<body>
+		<head><![CDATA[
+			<link rel="stylesheet" href="$resourcePath/css/site.css"/>
+		]]></head>
+		<links>
+			<item name="Demo" href="https://openmeetings.apache.org/demo.html"/>
+			<item name="Download" href="https://openmeetings.apache.org/downloads.html"/>
+			<item name="Wiki" href="https://cwiki.apache.org/confluence/display/OPENMEETINGS"/>
+		</links>
+		<menu ref="modules" inherit="top"/>
+	</body>
+
+	<poweredBy/>
+
+	<custom>
+		<reflowSkin>
+			<brand>
+				<name><![CDATA[
+					<span class="color-highlight">Apache</span> OpenMeetings
+				]]></name>
+				<href>https://openmeetings.apache.org/index.html</href>
+			</brand>
+			<absoluteResourceURL>https://openmeetings.apache.org</absoluteResourceURL>
+			<protocolRelativeURLs>true</protocolRelativeURLs>
+			<localResources>true</localResources>
+			<theme>bootswatch-${reflow-theme}</theme>
+			<bottomNav maxSpan="12">
+				<column>General</column>
+				<column>Installation</column>
+				<column>Community</column>
+				<column>Development</column>
+			</bottomNav>
+			<toc position="fixed">sidebar</toc>
+			<navbar theme="dark" background="primary"/>
+			<header type="banner" cssClass="text-light bg-secondary"></header>
+			<skinAttribution>false</skinAttribution>
+			<highlightJs>true</highlightJs>
+			<highlightJsTheme>github</highlightJsTheme>
+			<endContent>
+				<script src="https://www.apachecon.com/event-images/snippet.js"></script>
+				<script type="text/javascript" src="$resourcePath/js/site.js"></script>
+				<div class="text-center">
+					Apache OpenMeetings, OpenMeetings, Apache, the Apache feather, and the Apache OpenMeetings project logo
+				</div>
+				<div class="text-center">
+					are trademarks of the Apache Software Foundation.
+				</div>
+				<div class="text-center">
+					<a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy policy</a>
+				</div>
+			</endContent>
+		</reflowSkin>
+	</custom>
+</project>

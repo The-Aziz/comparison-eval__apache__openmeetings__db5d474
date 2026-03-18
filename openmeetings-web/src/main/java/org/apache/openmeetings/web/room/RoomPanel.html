@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<div class="room-block">
+		<div class="room-container" wicket:id="roomContainer">
+			<div class="menu" wicket:id="menu"></div>
+			<div class="sb-wb">
+				<div class="sidebar start-0" wicket:id="sidebar"></div>
+				<div wicket:id="wb-area" class="wb-block">
+					<div class="wb-drop-area"></div>
+					<div class="wb-area" wicket:id="whiteboard"></div>
+				</div>
+			</div>
+		</div>
+		<div class="event-details end-0" wicket:id="event-details"></div>
+		<div wicket:id="access-denied"></div>
+		<div wicket:id="room-closed"></div>
+		<div wicket:id="nickname" class="room-nickname-dialog"></div>
+		<div wicket:id="client-kicked"></div>
+		<div wicket:id="wait-moderator" class="wait-moder"></div>
+		<div id="room-local-settings" class="modal fade" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><wicket:message key="edit.settings"/></h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" wicket:message="aria-label:85"></button>
+					</div>
+					<div class="modal-body">
+						<h5><wicket:message key="video.muteothers"/></h5>
+						<div class="row justify-content-end">
+							<div class="form-check col-10">
+								<input type="checkbox" class="form-check-input" id="muteOthersAsk">
+								<label class="form-check-label" for="muteOthersAsk"><wicket:message key="dont.ask.again"/></label>
+							</div>
+						</div>
+						<h5 class="mt-2"><wicket:message key="244"/></h5>
+						<div class="row justify-content-end">
+							<div class="form-check col-10">
+								<input type="checkbox" class="form-check-input" id="chatNotify">
+								<label class="form-check-label" for="chatNotify"><wicket:message key="sound.enable"/></label>
+							</div>
+							<div class="form-check col-10">
+								<input type="checkbox" class="form-check-input" id="sendOnCtrlEnter">
+								<label class="form-check-label" for="sendOnCtrlEnter"><wicket:message key="send.on.ctrl.enter"/></label>
+							</div>
+						</div>
+						<h5 class="mt-2"><wicket:message key="lbl.video"/></h5>
+						<div class="row justify-content-end">
+							<div class="form-check col-10">
+								<input type="checkbox" class="form-check-input" id="fixedVideoPod">
+								<label class="form-check-label" for="fixedVideoPod"><wicket:message key="fixed.video.pod.size"/></label>
+							</div>
+							<div id="video-sizes-container" class="col-10"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="disconnected-dlg" class="modal fade" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"><wicket:message key="204"/></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" wicket:message="aria-label:85"></button>
+				</div>
+				<div class="modal-body">
+					<wicket:message key="556"/>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+						<i class="fas fa-sync-alt"></i>&nbsp;<wicket:message key="753"/>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div hidden="hidden">
+		<div id="user-video" class="video-container" wicket:message="data-ptt-info:ptt.info">
+			<div class="video">
+				<canvas width="10" class="level-meter" wicket:message="title:767"></canvas>
+				<div class="om-icon mute-others clickable" wicket:message="title:video.muteothers"></div>
+			</div>
+			<div class="footer" wicket:message="data-on:video.mic.on,data-off:video.mic.off">
+			</div>
+		</div>
+		<div id="video-button-bar" class="buttonpane float-end position-absolute top-0 end-0">
+			<a class="btn btn-refresh btn-outline-secondary btn-sm" href="#" wicket:message="title:lbl.refresh" role="button">
+				<i class="fas fa-sync-alt"></i>
+				<span class="sr-only"><wicket:message key="lbl.refresh"/></span>
+			</a>
+			<a class="btn btn-toggle btn-outline-secondary btn-sm" href="#" role="button">
+				<i class="fas"></i>
+			</a>
+			<a class="btn btn-wclose btn-outline-secondary btn-sm" href="#" wicket:message="title:85" role="button">
+				<i class="fas fa-times"></i>
+				<span class="sr-only"><wicket:message key="85"/></span>
+			</a>
+		</div>
+		<div id="muteothers-confirm" wicket:message="title:ulist.right.muteothers.grant, data-btn-ok:54, data-btn-cancel:lbl.cancel">
+			<div class="text-warning p-1">
+				<i class="m-2 warn fas fa-exclamation-triangle text-warning"></i><wicket:message key="ulist.user.muteothers.confirm"/>
+			</div>
+			<br/>
+			<input id="muteothers-confirm-dont-show" type="checkbox"/><label for="muteothers-confirm-dont-show" class="mx-2"><wicket:message key="dont.ask.again"/></label>
+		</div>
+		<div id="clipboard-dialog" wicket:message="title:1121,data-btn-ok:54">
+			<p><span class="ui-icon ui-icon-alert float-start ms-2 mt-2 mb-3 me-0"></span><span class="text"></span></p>
+		</div>
+		<div id="quick-vote-template">
+			<div class="close-btn btn btn-outline-secondary btn-sm float-end"
+				 wicket:message="title:85,data-btn-ok-label:54,data-btn-cancel-label:lbl.cancel,data-title:832,data-bs-content:1419"
+				 data-btn-ok-class="btn btn-sm btn-danger"
+				 data-btn-ok-icon-class="fas fa-exclamation-triangle">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class="control pro clickable">
+				<i class="fas fa-plus-circle"></i>
+				<span class="badge bg-primary end-0">0</span>
+			</div>
+			<div class="control con">
+				<i class="fas fa-times-circle"></i>
+				<span class="badge bg-primary end-0">0</span>
+			</div>
+		</div>
+		<div id="sharer" wicket:message="title:730">
+			<h2 class="alert text-warning">Screen-sharing is not supported in your browser</h2>
+			<div class="container p-0 m-0">
+				<div class="row g-0">
+					<label class="col-7"><wicket:message key="734"/></label>
+					<select name="type" class="type col-4 form-select">
+						<option value="screen">Screen</option>
+						<option value="window">Window</option>
+					</select>
+				</div>
+				<div class="row g-0">
+					<label class="col-7"><wicket:message key="1089"/></label>
+					<select name="fps" class="fps col-4 form-select">
+						<option value="2">2 FPS</option>
+						<option value="5">5 FPS</option>
+						<option value="10" selected>10 FPS</option>
+						<option value="15">15 FPS</option>
+						<option value="20">20 FPS</option>
+						<option value="25">25 FPS</option>
+						<option value="30">30 FPS</option>
+					</select>
+				</div>
+				<hr/>
+				<button class="share-start-stop btn btn-outline-primary" wicket:message="data-start:732, data-stop:733">
+					<i class="fas"></i>&nbsp;<span><wicket:message key="732"/></span>
+				</button>
+				<button class="record-start-stop btn btn-outline-danger" wicket:message="data-start:871, data-stop:872">
+					<i class="fas"></i>&nbsp;<span><wicket:message key="871"/></span>
+				</button>
+			</div>
+		</div>
+		<div id="ask-permission" wicket:message="title:video.permission.title, data-btn-ok:54">
+			<wicket:message key="video.permission.text"/>
+		</div>
+	</div>
+	<link rel="stylesheet" type="text/css" wicket:id="groupstyle"/>
+</wicket:panel>
+</html>

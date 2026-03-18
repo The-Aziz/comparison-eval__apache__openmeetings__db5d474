@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<div class="rooms-table">
+		<div wicket:id="list"></div>
+	</div>
+	<!-- Users in this Room -->
+	<div class="p-3" wicket:id="details">
+		<div class="formelement">
+			<label><i><wicket:message key="404" /></i></label>
+		</div>
+		<div class="formelement">
+			<label><strong><wicket:message key="406" /></strong></label>
+			<span wicket:id="roomName"></span>&nbsp;#<span wicket:id="roomId"></span>
+		</div>
+		<div class="formelement">
+			<label><strong><wicket:message key="196" /></strong></label>
+			<span wicket:id="roomComment"></span>
+		</div>
+		<div class="formelement">
+			<label><wicket:message key="407" /></label>
+		</div>
+		<div class="tableWrapper overflow-y-auto" id="adminTable" wicket:id="clientsContainer">
+			<div class="row g-0" wicket:id="clients">
+				<div class="col-2">
+					<img class="img-fluid" wicket:id="clientImage"/>
+				</div>
+				<div class="col-10">
+					<span wicket:id="clientLogin"></span>&nbsp;<wicket:message key="408"/>&nbsp;<span wicket:id="from"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>
+</html>

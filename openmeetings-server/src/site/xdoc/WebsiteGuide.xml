@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Website Guide</title>
+		<author email="dev@openmeetings.apache.org">Apache OpenMeetings Team</author>
+	</properties>
+	<body>
+		<section name="How to update Apache OpenMeetings website">
+			<subsection name="Required tools">
+				<div>
+					<ul>
+						<li>JDK17</li>
+						<li>Apache Maven (3.5.0 or later)</li>
+					</ul>
+				</div>
+			</subsection>
+			<subsection name="Introduction">
+				<div>
+					<p>
+						The Apache OpenMeetings HTML websites are generated from XML files.
+						You edit the XML files, run the MAVEN command <source><![CDATA[mvn install -P allModules,unpacked -DskipTests=true]]></source> that generates the HTML files
+						and then you copy generated HTML files into appropriate place and commit to Git both: XML and HTML files.
+					</p>
+					<p>
+						The website itself uses JQuery to generate the menu, the pop images and the image slider at the landing page.
+					</p>
+				</div>
+			</subsection>
+			<subsection name="Editing the website">
+				<div>
+					<p>
+						OpenMeetings website (<a href="https://openmeetings.apache.org/">https://openmeetings.apache.org/</a>) is a copy from the Git repository.<br />
+						The files in the Git to be synced are at:
+						<br />
+						<a href="https://github.com/apache/openmeetings-site.git">https://github.com/apache/openmeetings-site.git</a><br/>
+					</p>
+					<div>
+						To update the website you need to clone asf-site:<br />
+						<source><![CDATA[
+git clone https://github.com/apache/openmeetings-site.git site
+git checkout master
+						]]></source>
+						edit the files in the folder <code>openmeetings-server/src/site</code><br/>
+						then you run the command:
+						<source><![CDATA[mvn site]]></source>
+						control the output locally in the folder <code>target/site</code><br/>
+						copy site contents into target folder: <source><![CDATA[cp -r target/site/* <location of site>]]></source>
+						And then commit your changes into the Git <i>both</i> the edited xml(s) and generated html files.
+					</div>
+					<p>
+						The public website is automatically synced with the Git repository.<br/>
+						Changes to the Git should be immediately synced to the production website.<br/>
+					</p>
+				</div>
+			</subsection>
+			<subsection name="Adding a new menu entry">
+				<div>
+					To add a new menu entry in the left side panel you need to modify the file:
+					<br/>
+					<code>openmeetings-server/src/site/site.xml</code>
+				</div>
+			</subsection>
+		</section>
+	</body>
+</document>

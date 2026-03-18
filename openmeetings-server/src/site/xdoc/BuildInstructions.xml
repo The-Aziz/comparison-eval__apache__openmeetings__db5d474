@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Build instructions</title>
+		<author email="dev@openmeetings.apache.org">Apache OpenMeetings Team</author>
+	</properties>
+	<body>
+		<section name="Nightly Builds">
+			<p>
+				You can find Nightly Builds of the software at:
+				<a href="https://ci-builds.apache.org/job/OpenMeetings/" rel="nofollow" target="_blank">
+					https://ci-builds.apache.org/job/OpenMeetings/
+				</a>
+			</p>
+		</section>
+		<section name="How to Build a Distribution">
+			<div>
+				<p>To build a binary release of OpenMeetings you need: </p>
+				<ul>
+					<li>Oracle JDK17</li>
+					<li>Apache Maven (minimum) 3.6.0</li>
+					<li>Git</li>
+				</ul>
+			</div>
+
+			<p>Get the source: </p>
+			<source><![CDATA[git clone https://github.com/apache/openmeetings.git]]></source>
+			<p>Run the command: </p>
+			<source><![CDATA[mvn clean install -P allModules]]></source>
+		</section>
+		<section name="Run, Develop, Test">
+			<p>
+				To develop Openmeetings you need to import maven project into Eclipse
+				<img src="images/eclipse-import-maven-project.png" alt="Import OM into Eclipse" width="526" height="394" />
+			</p>
+			<div>
+				<p>To develop Openmeetings you need to import maven project into IntelliJ IDEA: </p>
+				<ul>
+					<li>Build the repository using <code>mvn clean install -P allModules</code></li>
+					<li>Open IntelliJ IDEA</li>
+					<li>Click on "Open" and select the root folder of the OpenMeetings repository</li>
+					<li>IntelliJ IDEA will detect the Maven project and ask you to import it</li>
+					<li>Click on "Import" to import the Maven project</li>
+					<li>Wait for the import to finish, IntelliJ IDEA will download all the necessary dependencies</li>
+					<li>Once the import is complete, you can start developing OpenMeetings</li>
+				</ul>
+				<p>Make sure to configure the JDK in IntelliJ IDEA to match the version used in the project (JDK17).</p>
+				<p>For more information on how to set up IntelliJ IDEA for OpenMeetings development, refer to the <a href="https://www.jetbrains.com/help/idea/maven-support.html" target="_blank">IntelliJ IDEA Maven support documentation</a>.</p>
+				<p>For running OpenMeetings from IntelliJ see <a href="https://cwiki.apache.org/confluence/display/OPENMEETINGS/OpenMeetings+in+IntelliJ">Wiki instructions</a></p>
+			</div>
+		</section>
+		<section name="Check for known vulnerabilities">
+			<source>mvn org.sonatype.ossindex.maven:ossindex-maven-plugin:audit -f pom.xml</source>
+		</section>
+		<section name="Check for updates">
+			<source>mvn versions:display-dependency-updates -DincludeParent</source>
+			<source>mvn versions:display-plugin-updates -DincludeParent</source>
+			<source>mvn versions:display-property-updates -DincludeParent</source>
+		</section>
+		<section name="Check dependencies">
+			<source>mvn org.apache.maven.plugins:maven-dependency-plugin:analyze-only</source>
+		</section>
+		<section name="Tips and Gotchas">
+			<p>Eclipse ANSI colors plugin for colors in console</p>
+			<source><![CDATA[
+MAVEN_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n' mvn clean -P allModules,quick,mysql jetty:run-exploded -Dwicket.configuration=DEVELOPMENT
+
+#Quick rebuild and run
+cd ..; mvn clean install -PallModules,quick,mysql -pl openmeetings-util,openmeetings-core; cd openmeetings-web; MAVEN_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n' mvn clean -P allModules,quick,mysql jetty:run-exploded -Dwicket.configuration=DEVELOPMENT
+
+			]]></source>
+			<p>Run OpenMeetings with Embedded Jetty for Development purpose in JDK17</p>
+			<source>
+<![CDATA[
+# ANSI console colors and fix Hazelcast warnings for access
+export MAVEN_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n --add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED'
+
+# Just run Webapp, requires other modules to be compiled separated if changed
+cd openmeetings-webapp
+mvn install -P allModules,quick,mysql jetty:run-exploded -Dwicket.configuration=DEVELOPMENT
+
+# OpenMeetings logs for embedded jetty are in
+cd openmeetings-webapp
+tail -f -n 1000 target/openmeetings.log
+]]>
+			</source>
+
+			<p>In case you would like to develop Openmeetings you need to run <i>"unpacked"</i> build: </p>
+			<source>
+<![CDATA[
+mvn clean install -P allModules,unpacked,mysql -DskipTests=true -Dwicket.configuration=DEVELOPMENT -Dsite.skip=true
+]]>
+			</source>
+			<p>After modifications are made you can run <i>"quick"</i> build: </p>
+			<source>
+<![CDATA[
+mvn install -P allModules,quick,mysql -pl openmeetings-web,openmeetings-server -Dwicket.configuration=DEVELOPMENT
+]]>
+			</source>
+			<p>Any number of projects can be specified during build: </p>
+			<source>
+<![CDATA[
+mvn install -P allModules,quick,mysql -pl openmeetings-util,openmeetings-db,openmeetings-core,openmeetings-install,openmeetings-service,openmeetings-web,openmeetings-server,openmeetings-webservice -Dwicket.configuration=DEVELOPMENT
+]]>
+			</source>
+
+		</section>
+		<section name="Update JavaScript and CSS at runtime">
+			<div>
+				<p>You can update Javascript and CSS files and then copy them at runtime. No need to re-run the entire Server build and restart. This can greatly save time when developing:</p>
+				<source>
+<![CDATA[
+cd openmeetings-web
+# Run NPM install on each of the packages (only required once unless you change dependency):
+mvn frontend:npm@main-install frontend:npm@chat-install frontend:npm@settings-install frontend:npm@room-install frontend:npm@wb-install
+# Run NPM
+mvn frontend:npm@main frontend:npm@chat frontend:npm@settings frontend:npm@room frontend:npm@wb
+# Minify CSS
+mvn minify:minify@theme-minify minify:minify@nettest-js
+# Copy to destination, in this case running OpenMeetings using the embedded Jetty, see above
+export CURRENT_DIR=$(pwd)
+rsync -a $CURRENT_DIR/target/generated-sources/js/ $CURRENT_DIR/target/openmeetings-web-7.0.0-SNAPSHOT/WEB-INF/classes/
+]]>
+				</source>
+				<p>You can also copy paste above into a handy shell script and just run that on demand.</p>
+				<p>This also allows you to use another editor like WebStorm or IntelliJ for editing the OpenMeetings node npm projects!</p>
+			</div>
+		</section>
+		<section name="Fix Proxy settings">
+			<div>
+				<b>Working behind a proxy:</b>
+				If you are sitting behind a proxy you should add some proxy settings before starting the build process.
+				<br />
+				<source>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080</source>
+				<ul>
+					<li>change <code>proxyuser</code> to your proxy user</li>
+					<li>change <code>proxypwd</code> to your proxy password</li>
+					<li>change <code>proxy.server.com</code> to the URL of your proxy server</li>
+					<li>change <code>8080</code> to the proxy port configured on your proxy server</li>
+				</ul>
+			</div>
+		</section>
+	</body>
+</document>

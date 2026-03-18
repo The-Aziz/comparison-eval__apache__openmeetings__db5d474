@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<div class="tabs">
+		<div class="wb-tabbar">
+			<div class="scroll-container">
+				<ul class="scrollable nav nav-tabs"></ul>
+			</div>
+		</div>
+		<div class="wb-tab-content tab-content">
+			<button type="button" class="fullscreen btn btn-outline-secondary end-0">
+				<i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+			</button>
+		</div>
+	</div>
+
+	<div hidden="hidden">
+		<div id="wb-text-style-block"></div>
+		<div id="wb-tabbar-ctrls-left">
+			<div wicket:message="title:wb.add.whiteboard" class="add clickable om-icon big start-0"></div>
+			<div wicket:message="title:wb.pre.whiteboard" class="prev clickable om-icon big start-0 disabled"></div>
+		</div>
+		<div id="wb-tabbar-ctrls-right">
+			<div wicket:message="title:wb.next.whiteboard" class="next clickable om-icon big end-0 disabled"></div>
+		</div>
+		<ul>
+			<li id="wb-area-tab" class="nav-item">
+				<a class="nav-link" data-bs-toggle="tab">
+					<span class="wb-nav-tab-text"></span>
+				</a>
+			</li>
+		</ul>
+		<button id="wb-tab-close" class="btn btn-sm btn-outline-secondary btn-no-border wb-tab-close end-0"
+				wicket:message="title:85,data-btn-ok-label:54,data-btn-cancel-label:lbl.cancel,data-title:832,data-bs-content:1313"
+				data-btn-ok-class="btn btn-sm btn-danger"
+				data-btn-ok-icon-class="fas fa-exclamation-triangle"
+				>
+			<i class="fas fa-times"></i>
+			<span class="sr-only"><wicket:message key="85"/></span>
+		</button>
+		<div id="wb-area-texts" class="btn-group texts dropstart">
+			<a class="dropdown-toggle" data-bs-toggle="dropdown"></a>
+			<div class="dropdown-menu">
+				<div wicket:message="title:73" class="clickable om-icon big text"></div>
+				<div wicket:message="title:82" class="clickable om-icon big textbox"></div>
+			</div>
+		</div>
+		<div id="wb-area-drawings" class="btn-group drawings dropstart">
+			<a class="dropdown-toggle" data-bs-toggle="dropdown"></a>
+			<div class="dropdown-menu">
+				<div wicket:message="title:74" class="clickable om-icon big paint"></div>
+				<div wicket:message="title:75" class="clickable om-icon big line"></div>
+				<div wicket:message="title:76" class="clickable om-icon big uline"></div>
+				<div wicket:message="title:77" class="clickable om-icon big rect"></div>
+				<div wicket:message="title:78" class="clickable om-icon big ellipse"></div>
+				<div wicket:message="title:79" class="clickable om-icon big arrow"></div>
+				<div wicket:message="title:wb.tool.white-out" class="clickable om-icon big eraser"></div>
+			</div>
+		</div>
+		<div id="wb-area-cliparts" class="btn-group cliparts dropstart">
+			<a class="dropdown-toggle" data-bs-toggle="dropdown" wicket:message="title:1323"></a>
+			<div class="dropdown-menu">
+				<div wicket:id="clipart" class="clickable om-icon big clipart" data-image="./public/cliparts/"></div>
+			</div>
+		</div>
+		<div id="wb-area" class="wb-tab tab-pane">
+			<div class="wb-with-zoom">
+				<div class="wb-zoom-block"></div>
+				<div class="scroll-container">
+					<div class="canvases"></div>
+					<div class="bottom-bumper"></div>
+				</div>
+			</div>
+			<div class="tools"></div>
+		</div>
+		<div id="wb-zoom" class="wb-zoom">
+			<div class="doc-group input-group input-group-sm">
+				<button type="button" class="btn btn-outline-secondary up" wicket:message="title:256">
+					<i class="fas fa-reply"></i>
+				</button>
+				<input class="curr-slide" type="number" min="1" max="1"/>
+				<div class="input-group-text"><wicket:message key="254"/></div>
+				<div class="last-page input-group-text">1</div>
+				<button type="button" class="btn btn-outline-secondary down" wicket:message="title:257">
+					<i class="fas fa-share"></i>
+				</button>
+			</div>
+			<div class="zoom-group input-group input-group-sm">
+				<button type="button" class="btn btn-outline-secondary zoom-out" wicket:message="title:259">
+					<i class="fas fa-search-minus"></i>
+				</button>
+				<select class="zoom text-dark" data-custom-val="1.20">
+					<option value="FULL_FIT"><wicket:message key="zoom.FULL_FIT"/></option>
+					<option value="PAGE_WIDTH"><wicket:message key="zoom.PAGE_WIDTH"/></option>
+					<option value="custom">120%</option>
+					<option value="0.50">50%</option>
+					<option value="0.75">75%</option>
+					<option value="1.00">100%</option>
+					<option value="1.25">125%</option>
+					<option value="1.50">150%</option>
+					<option value="2.00">200%</option>
+					<option value="3.00">300%</option>
+					<option value="4.00">400%</option>
+				</select>
+				<button type="button" class="btn btn-outline-secondary zoom-in" wicket:message="title:260">
+					<i class="fas fa-search-plus"></i>
+				</button>
+			</div>
+			<div class="settings-group">
+				<button type="button" class="btn btn-outline-secondary btn-sm settings" wicket:message="title:lbl.settings.whiteboard">
+					<i class="fas fa-cog"></i>
+				</button>
+			</div>
+		</div>
+		<div id="wb-tools">
+			<div class="clickable om-icon big clear-all"
+				wicket:message="title:62,data-btn-ok-label:54,data-btn-cancel-label:lbl.cancel,data-title:80,data-bs-content:1340"
+				data-btn-ok-class="btn btn-sm btn-danger"
+				data-btn-ok-icon-class="fas fa-exclamation-triangle"></div>
+			<div class="clickable om-icon big clear-slide"
+				wicket:message="title:1005,data-btn-ok-label:54,data-btn-cancel-label:lbl.cancel,data-title:80,data-bs-content:1359"
+				data-btn-ok-class="btn btn-sm btn-danger"
+				data-btn-ok-icon-class="fas fa-exclamation-triangle"></div>
+			<div wicket:message="title:199" class="clickable om-icon big save"></div>
+			<div wicket:message="title:wb.tool.undo" class="clickable om-icon big undo"></div>
+			<div wicket:message="title:wb.tool.redo" class="clickable om-icon big redo"></div>
+
+			<div wicket:message="title:72" class="clickable om-icon big pointer"></div>
+			<div wicket:message="title:557" class="clickable om-icon big apointer"></div>
+			<div wicket:message="title:wb.tool.math.formula" class="clickable om-icon big math"></div>
+			<div wicket:message="title:843" class="clickable om-icon big settings"></div>
+		</div>
+		<div id="wb-tools-readonly">
+			<div wicket:message="title:557" class="clickable om-icon big apointer"></div>
+		</div>
+		<div id="wb-tool-settings" class="wb-tool-settings ui-widget-content">
+			<div wicket:message="title:843" class="header ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-draggable-handle">
+				<span class="ui-dialog-title"><wicket:message key="843"/></span>
+			</div>
+			<button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" wicket:message="title:85">
+				<span class="ui-button-icon ui-icon ui-icon-closethick"></span>
+				<span class="ui-button-icon-space"> </span>
+				<wicket:message key="85"/>
+			</button>
+			<div class="tab props">
+				<div class="prop-row">
+					<div class="block lbl" wicket:message="title:546"><wicket:message key="545"/></div>
+					<div class="block input"><input class="wb-dim-x" type="text" maxlength="4" readonly="readonly"/></div>
+					<div class="block lbl" wicket:message="title:740"><wicket:message key="549"/></div>
+					<div class="block input"><input class="wb-dim-w" type="text" maxlength="4" readonly="readonly"/></div>
+					<div class="block input"><input class="wb-prop-color" type="color" value="#ff6600" wicket:message="title:424"/></div>
+					<div class="block but"><button class="wb-prop-lock-color" wicket:message="title:426">&nbsp;</button></div>
+					<div class="block input"><input class="wb-prop-width" type="number" min="1" max="100" value="2" wicket:message="title:429"/></div>
+					<div class="block but"><button class="wb-prop-i" wicket:message="title:86">I</button></div>
+				</div>
+				<div class="prop-row">
+					<div class="block lbl" wicket:message="title:548"><wicket:message key="547"/></div>
+					<div class="block input"><input class="wb-dim-y" type="text" maxlength="4" readonly="readonly"/></div>
+					<div class="block lbl" wicket:message="title:741"><wicket:message key="551"/></div>
+					<div class="block input"><input class="wb-dim-h" type="text" maxlength="4" readonly="readonly"/></div>
+					<div class="block input"><input class="wb-prop-fill" type="color" value="#ffff33" wicket:message="title:427"/></div>
+					<div class="block but"><button class="wb-prop-lock-fill" wicket:message="title:428">&nbsp;</button></div>
+					<div class="block input"><input class="wb-prop-opacity" type="number" min="1" max="100" value="100" wicket:message="title:553"/></div>
+					<div class="block but"><button class="wb-prop-b" wicket:message="title:87">B</button></div>
+				</div>
+			</div>
+		</div>
+		<div id="wb-formula" class="wb-formula ui-corner-all ui-widget-content">
+			<div wicket:message="title:wb.tool.math.formula" class="header ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle">
+				<span class="ui-dialog-title"><wicket:message key="wb.tool.math.formula"/></span>
+			</div>
+			<button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close end-0" wicket:message="title:85">
+				<span class="ui-button-icon ui-icon ui-icon-closethick"></span>
+				<span class="ui-button-icon-space"> </span>
+				<wicket:message key="85"/>
+			</button>
+			<div class="text-container"><textarea></textarea></div>
+			<div class="text-start">
+				<a class="latex-guide" wicket:message="href:wb.tool.math.guide.url" target="_blank"><wicket:message key="wb.tool.math.guide.lbl"/></a>
+				<button class="update-btn"><wicket:message key="lbl.update"/></button>
+			</div>
+			<div class="status"></div>
+		</div>
+	</div>
+	<div id="wb-settings" class="wb-settings modal fade" tabindex="-1" data-bs-backdrop="false" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"><wicket:message key="4"/></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" wicket:message="aria-label:85"></button>
+				</div>
+				<div class="modal-body">
+					<div class="om-tbl">
+						<div class="om-tbl-row">
+							<div class="om-tbl-cell"><wicket:message key="740"/></div>
+							<div class="om-tbl-cell"><input class="wbs-width" type="number" min="100"/></div>
+						</div>
+						<div class="om-tbl-row">
+							<div class="om-tbl-cell"><wicket:message key="741"/></div>
+							<div class="om-tbl-cell"><input class="wbs-height" type="number" min="100"/></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-primary btn-ok">
+						<wicket:message key="54"/>
+					</button>
+					<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+						<wicket:message key="lbl.cancel"/>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<ul id="wb-rename-menu" class="position-absolute">
+		<li class="wb-rename"><div><i class="fas fa-pencil-alt"></i><wicket:message key="711"/></div></li>
+	</ul>
+	<div wicket:id="filename"></div>
+</wicket:panel>
+</html>

@@ -1,0 +1,252 @@
+/* Licensed under the Apache License, Version 2.0 (the "License") http://www.apache.org/licenses/LICENSE-2.0 */
+.file-tree {
+	vertical-align: top;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+
+	.trees {
+		height: calc(100% - var(--tree-header-height) - var(--tree-footer-height));
+		width: var(--sidebar-width);
+		overflow-x: auto;
+		overflow-y: auto;
+
+		#tree-anchor {
+			height: 2px;
+			width: 2px;
+		}
+		.om-icon.active {
+			background-color: var(--bs-info);
+		}
+		.om-icon i {
+			display: none;
+			position: absolute;
+			bottom: 1px;
+			left: 5px;
+			font-size: .8em;
+		}
+		.tree-theme-windows {
+			/* wicket overrides */
+			&, > :first-child
+			, .tree-branch
+			, .tree-branch .tree-node
+			, .tree-subtree .tree-branch
+			, .tree-node .om-icon
+			, .tree-node .om-icon .file.item
+			, .tree-node .om-icon .file.item .name
+			, .tree-node .om-icon .file.item .name span
+			{
+				width: 100%;
+			}
+			.tree-node {
+				.file.item {
+					position: relative;
+					display: inline-block;
+					vertical-align: top;
+
+					.name, .name span {
+						color: black;
+						display: block;
+						/* Required for text-overflow to do anything */
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+					}
+					.name {
+						padding-top: 10px;
+					}
+					.errors {
+						position: absolute;
+						top: 0px;
+						right: 1px;
+						width: 32px;
+						height: 32px;
+						margin: 0px;
+						padding: 0px;
+					}
+					.errors::before {
+						color: var(--bs-warning);
+						content: '\f071';
+					}
+				}
+				.folder .file.item, .folder-open .file.item {
+					.name {
+						padding-inline-start: 2px;
+					}
+				}
+				.om-icon.broken .file.item .name {
+					width: calc(100% - 32px);
+				}
+			}
+			div.tree-subtree, .tree-node .om-icon {
+				width: calc(100% - 20px);
+			}
+			span.tree-content {
+				display: flex !important;
+			}
+		}
+		.om-icon {
+			width: auto;
+			margin-top: 0;
+
+			&.big {
+				position: relative;
+
+				&::before {
+					position: absolute;
+					left: 3px;
+				}
+			}
+			.processing i {
+				display: block;
+			}
+		}
+		.tree-node {
+			white-space: nowrap;
+
+			.tree-junction {
+				text-decoration: none;
+			}
+		}
+	}
+	.footer {
+		height: var(--tree-footer-height);
+
+		.sizes {
+			display: inline-block;
+		}
+		.buttons .other-buttons {
+			display: inline-block;
+			margin: 0 2px;
+		}
+	}
+	.info {
+		.details {
+			width: 100%;
+			display: table;
+		}
+		.row {
+			display: table-row;
+
+			.label, .value {
+				display: table-cell;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.label {
+				max-width: 50px;
+			}
+			.value {
+				max-width: 270px;
+			}
+		}
+	}
+}
+.trash-toolbar {
+	font-weight: bold;
+	line-height: 20px;
+	color: transparent;
+	height: var(--tree-header-height);
+	overflow: hidden;
+
+	.om-confirm-dialog {
+		color: var(--bs-danger);
+	}
+	.om-icon.fileitem, .om-icon.recorditem {
+		display: none !important;
+	}
+}
+.trash-toolbar-hover {
+	color: inherit;
+	background-color: var(--bs-light);
+
+	.trash.om-icon::before {
+		font-weight: 400;
+	}
+}
+.om-icon {
+	&.refresh::before {
+		content: '\f2f1';
+	}
+	&.trash::before {
+		content: '\f2ed';
+	}
+	&.folder-create::before {
+		content: '\f65e';
+	}
+	&.recording::before {
+		content: '\f008';
+	}
+	&.broken::before {
+		color: var(--bs-danger);
+	}
+	&.upload {
+		margin-top: 0;
+
+		&::before {
+			content: '\f574';
+			padding: 0 7px;
+		}
+	}
+	&.file {
+		&.public::before {
+			content: '\f0ac';
+		}
+		&.image::before {
+			content: '\f1c5';
+		}
+		&.chart::before {
+			content: '\f200';
+		}
+		&.wml::before {
+			content: '\f56f';
+		}
+		&.doc::before {
+			content: '\f15b';
+		}
+		&.folder::before {
+			content: '\f07b';
+		}
+		&.folder-open::before {
+			content: '\f07c';
+		}
+		&.my::before {
+			content: '\f015';
+		}
+	}
+}
+.drag-container .om-icon {
+	display: block !important;
+}
+.selected .file.item {
+	background-color: #0099FF;
+}
+.dialog.errors {
+	height: 500px;
+	font-size: small;
+
+	.scroll-container {
+		overflow: auto;
+		height: calc(100% - 50px);
+	}
+	.alert {
+		color: var(--bs-danger);
+	}
+	.warn {
+		color: var(--bs-warning);
+	}
+	.message {
+		display: block;
+		unicode-bidi: embed;
+		font-family: monospace;
+		white-space: pre;
+		margin: 0;
+	}
+}
+
+
+html[dir="rtl"] .trees .om-icon.big::before {
+	left: initial;
+	right: 3px;
+}

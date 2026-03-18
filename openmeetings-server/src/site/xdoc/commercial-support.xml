@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Commercial Support</title>
+		<author email="dev@openmeetings.apache.org">Apache OpenMeetings Team</author>
+	</properties>
+
+	<body>
+
+		<section name="Commercial Support for OpenMeetings">
+
+			<p>There are few companies offering complex services for OpenMeetings, including code support,
+			development, integration and bug fixing
+			</p>
+			<ul>
+				<li>
+					<a href="https://unipro.ru/en/openmeetings/" target="_blank">unipro.ru</a>
+					run by Maxim Solodovnik, Irina Arkhipets and other team
+				</li>
+				<li>
+					<a href="http://www.samoo.es" target="_blank" rel="nofollow">samoo.es</a>
+					provides support for the Sakai Plugin
+				</li>
+			</ul>
+			<p>
+				Please write to <a href="mailto:om.unipro@gmail.com">om.unipro@gmail.com</a> to get Unipro support
+			</p>
+			<h5>Cloud based hosting for OpenMeetings</h5>
+			<p>Cloud based hosting for OpenMeetings at <a href="https://om-hosting.com" target="_blank">om-hosting.com</a><br/><br/>
+				See the Dedicated and Elastic Private Cloud Data-Sheets with details at:</p>
+			<ul>
+				<li>
+					<b>Dedicated Servers</b> - 100, 200, and 400 concurrent users, see: <a href="https://om-hosting.com/dedicated-server-data-sheet/" target="_blank">Dedicated Server Data-Sheet</a>
+				</li>
+				<li>
+					<b>Elastic Private Cloud</b> - 800, 1600 or more concurrent users, including clustering of KMS, auto-scaling and load-balancing see:
+					<a href="https://om-hosting.com/dedicated-server-data-sheet/" target="_blank">Elastic Private Cloud Data-Sheet</a>
+				</li>
+			</ul>
+			<p>
+				To get in touch see <a href="https://om-hosting.com/about/">Contact Us</a> on their website
+			</p>
+			<p>
+				There are more companies offering installation, customization, hosting, conferencing and support services. You can add
+				yourself to the <a href="https://cwiki.apache.org/confluence/display/OPENMEETINGS/Commercial+Support">wiki page</a>.
+			</p>
+			<p>
+				Want to get listed here? Become a <a href="http://www.apache.org/dev/committers.html">committer</a>.
+			</p>
+		</section>
+	</body>
+</document>

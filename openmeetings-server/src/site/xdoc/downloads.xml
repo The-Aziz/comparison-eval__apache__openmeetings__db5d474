@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Downloads</title>
+		<author email="dev@openmeetings.apache.org">Apache OpenMeetings Team</author>
+	</properties>
+
+	<body>
+		<section name="Downloads">
+			<p>
+				All downloads should be verified using the Apache OpenMeetings code
+				signing <a href="https://downloads.apache.org/openmeetings/KEYS">KEYS</a>, <br/>
+				Here are <a href="https://www.apache.org/dyn/closer.cgi#verify">the instructions</a><br/>
+			</p>
+			<p>
+				All versions are available for download as source and binary.
+			</p>
+			<subsection name="Latest Official WebRTC Release">
+				<p>
+					Apache OpenMeetings 8.0.0
+				</p>
+				<ul>
+					<li>
+						Binaries:
+						<ul>
+							<li>
+								<a href="https://www.apache.org/dyn/closer.lua/openmeetings/8.0.0/bin/apache-openmeetings-8.0.0.zip">apache-openmeetings-8.0.0.zip</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/bin/apache-openmeetings-8.0.0.zip.asc">[SIG]</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/bin/apache-openmeetings-8.0.0.zip.sha512">[SHA512]</a>
+							</li>
+							<li>
+								<a href="https://www.apache.org/dyn/closer.lua/openmeetings/8.0.0/bin/apache-openmeetings-8.0.0.tar.gz">apache-openmeetings-8.0.0.tar.gz</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/bin/apache-openmeetings-8.0.0.tar.gz.asc">[SIG]</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/bin/apache-openmeetings-8.0.0.tar.gz.sha512">[SHA512]</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						Sources:
+						<ul>
+							<li>
+								<a href="https://www.apache.org/dyn/closer.lua/openmeetings/8.0.0/src/apache-openmeetings-8.0.0-src.zip">apache-openmeetings-8.0.0-src.zip</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/src/apache-openmeetings-8.0.0-src.zip.asc">[SIG]</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/src/apache-openmeetings-8.0.0-src.zip.sha512">[SHA512]</a>
+							</li>
+							<li>
+								<a href="https://www.apache.org/dyn/closer.lua/openmeetings/8.0.0/src/apache-openmeetings-8.0.0-src.tar.gz">apache-openmeetings-8.0.0-src.tar.gz</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/src/apache-openmeetings-8.0.0-src.tar.gz.asc">[SIG]</a>
+								<a href="https://downloads.apache.org/openmeetings/8.0.0/src/apache-openmeetings-8.0.0-src.tar.gz.sha512">[SHA512]</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						Changes: <a href="https://downloads.apache.org/openmeetings/8.0.0/CHANGELOG.md">CHANGELOG.md</a>.
+					</li>
+					<li>
+						Docker image: <a href="https://github.com/openmeetings/openmeetings-docker/tree/8.0.0">https://github.com/openmeetings/openmeetings-docker/tree/8.0.0</a>
+					</li>
+					<li>
+						<a href="https://cwiki.apache.org/confluence/display/OPENMEETINGS/Live+iso+OpenMeetings+on+Ubuntu">Live OM iso images by Alvaro</a>
+					</li>
+				</ul>
+			</subsection>
+			<subsection name="Previous Official Releases">
+				<p>
+					Apache Openmeetings releases available here:
+					<a href="https://archive.apache.org/dist/openmeetings/">https://archive.apache.org/dist/openmeetings/</a>
+				</p>
+				<p>
+					Apache Openmeetings Incubating 2.0 is available here:
+					<a href="https://archive.apache.org/dist/incubator/openmeetings/2.0-incubating/">https://archive.apache.org/dist/incubator/openmeetings/2.0-incubating</a>
+				</p>
+			</subsection>
+			<subsection name="Plugins / Non ASF downloads">
+				<p>
+					If you are looking for more plugins for 3th party applications (Moodle, Drupal, Joomla, ...) check out
+					<a href="https://github.com/openmeetings/" target="_blank" rel="nofollow">github.com</a> or
+					ask <a href="commercial-support.html">commercial support</a>.
+				</p>
+				<p>
+					OpenMeetings releases that are not part of the ASF can be downloaded from the
+					old
+					<a href="https://code.google.com/p/openmeetings/downloads/list"
+						target="_blank">GoogleCode website</a>
+				</p>
+			</subsection>
+		</section>
+	</body>
+</document>

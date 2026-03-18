@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Howto create a custom room type in OpenMeetings</title>
+		<author email="dev@openmeetings.apache.org">Apache OpenMeetings Team</author>
+	</properties>
+	<body>
+		<section name="Why creating a custom room type in OpenMeetings">
+			<p>If you want to create your own styled room the best thing to do in
+				order to be "update-save" is to create your own custom room type. There is an empty configuration
+				by default shipped with every release of OpenMeetings, the room type "custom" (ID = 5).<br/>
+				<br/>
+				You can use that and extend it, or you can add more room types to fit your use case.
+			</p>
+			<p></p>
+		</section>
+		<section name="Create your own room type class (User Interface)">
+			<p>Lets start by creating your custom room type class.</p>
+			<ol>
+				<li>
+					Additional room type need to be added to <code>https://github.com/apache/openmeetings/blob/master/openmeetings-db/src/main/java/org/apache/openmeetings/db/entity/room/Room.java</code>
+					class <code>Type</code> enum
+				</li>
+				<li>
+					<strong>(Optional)</strong>
+					<code>https://github.com/apache/openmeetings/blob/master/openmeetings-web/src/main/java/org/apache/openmeetings/web/room/RoomPanel.java</code>
+					java class need to be extended and customized
+				</li>
+				<li>
+					<strong>(Alternatively)</strong> room sub-components can be extended and customized as it currently done for
+					<code>https://github.com/apache/openmeetings/blob/master/openmeetings-web/src/main/java/org/apache/openmeetings/web/room/wb/InterviewWbPanel.java</code>
+				</li>
+			</ol>
+			<p>
+				Step 2) above is marked (Optional) since in most cases in might be enough to customize CSS rules for newly created room type<br/>
+				i.e. each room type can be customized by specifying CSS rules for this room type only. to do it:
+				<ul>
+					<li>
+						create CSS rule starting <code>.room-block .container.custom</code> where <code>custom</code> is the room type<br/>
+						for ex.
+						<source>
+<![CDATA[
+.room-block .container.presentation .menu {
+	background-color: red;
+}
+]]>
+						</source>
+						Will set <code>background-color</code> for room menu in all rooms of type <code>presentation</code>
+					</li>
+					<li>continue styling :)))</li>
+				</ul>
+			</p>
+			<p>Thats it. You can add/edit/delete your room with the new room type in the Administration > Rooms interface of
+				OpenMeetings like any other room.</p>
+		</section>
+	</body>
+</document>

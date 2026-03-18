@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:extend>
+	<form wicket:id="signin" class="signin">
+		<div wicket:id="credentials">
+			<div class="input-group mb-1 g-0">
+				<span class="input-group-text"><i class="fa fa-user"></i></span>
+				<input wicket:id="login" class="form-control auto-focus" type="text" value="" wicket:message="placeholder:109,title:109"/>
+			</div>
+			<div class="input-group mb-1 g-0">
+				<span class="input-group-text"><i class="fa fa-lock"></i></span>
+				<input wicket:id="pass" class="form-control" type="password" value="" wicket:message="placeholder:110,title:110"/>
+			</div>
+			<div class="input-group mb-1 g-0" wicket:id="ldap">
+				<span class="input-group-text"><i class="fa fa-users"></i></span>
+				<select wicket:id="domain" class="form-select" wicket:message="title:1118"></select>
+			</div>
+			<div class="row mb-1 g-0">
+				<div class="col-6">
+					<div class="form-check">
+						<input type="checkbox" wicket:id="rememberMe" class="form-check-input"/>
+						<label wicket:for="rememberMe" class="form-check-label"><wicket:message key="288" /></label>
+					</div>
+				</div>
+				<div class="col-5">
+					<a class="text-primary" wicket:id="forget"><wicket:message key="311"/></a>
+				</div>
+			</div>
+		</div>
+		<div wicket:id="oauth" class="oauth-section">
+			<div class="or-seperator">
+				<i><wicket:message key="lbl.or"/></i>
+			</div>
+			<div wicket:id="oauthList">
+				<a wicket:id="oauthBtn"></a>
+			</div>
+		</div>
+		<div wicket:id="feedback" class="error"></div>
+		<div class="row g-0">
+			<div class="col-6"><a class="text-primary" wicket:id="privacy" target="_blank" rel="noopener noreferrer"><wicket:message key="register.privacy.statement"/></a></div>
+			<div class="col-5"><a class="text-primary" wicket:id="netTest" target="_blank" rel="noopener noreferrer"><wicket:message key="1527"/></a></div>
+		</div>
+		<input type="submit" wicket:id="submit" hidden="hidden"/>
+	</form>
+</wicket:extend>
+</html>

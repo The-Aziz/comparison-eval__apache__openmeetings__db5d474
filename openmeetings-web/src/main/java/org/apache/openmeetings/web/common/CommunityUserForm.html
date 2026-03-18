@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<div wicket:id="community_settings">
+		<div>
+			<div class="d-inline-block col-3"></div>
+			<div class="d-inline-block col-8 form-check">
+				<input wicket:id="everybody" type="radio" class="form-check-input me-2"/>
+				<label wicket:for="everybody" class="form-check-label"><wicket:message key="1160"/></label>
+			</div>
+		</div>
+		<div>
+			<div class="d-inline-block col-3"></div>
+			<div class="d-inline-block col-8 form-check">
+				<input wicket:id="contact" type="radio" class="form-check-input me-2"/>
+				<label wicket:for="contact" class="form-check-label"><wicket:message key="1168"/></label>
+			</div>
+		</div>
+		<div>
+			<div class="d-inline-block col-3"></div>
+			<div class="d-inline-block col-8 form-check">
+				<input wicket:id="nobody" type="radio" class="form-check-input me-2"/>
+				<label wicket:for="nobody" class="form-check-label"><wicket:message key="1169"/></label>
+			</div>
+		</div>
+	</div>
+	<div class="formelement row">
+		<label wicket:for="userOffers" class="col-3"><wicket:message key="1162" /></label>
+		<div class="col-8 p-0">
+			<textarea wicket:id="userOffers" class="form-control"/>
+		</div>
+	</div>
+	<div class="formelement row">
+		<label wicket:for="userSearchs" class="col-3"><wicket:message key="1163" /></label>
+		<div class="col-8 p-0">
+			<textarea wicket:id="userSearchs" class="form-control"/>
+		</div>
+	</div>
+</wicket:panel>
+</html>

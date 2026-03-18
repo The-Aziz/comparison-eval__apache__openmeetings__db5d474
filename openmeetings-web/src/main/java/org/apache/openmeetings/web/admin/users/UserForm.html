@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-9.xsd">
+<wicket:panel>
+	<div class="actions" wicket:id="buttons"></div>
+	<div class="scrollcontent" wicket:id="adminForm" id="adminForm">
+		<fieldset>
+			<legend class="text-end">
+				<wicket:message key="143" />
+			</legend>
+			<div class="formelement row">
+				<span class="form-label col-3 text-right"></span>
+				<span class="col-8" wicket:id="avatar"></span>
+			</div>
+			<div class="formelement row">
+				<label wicket:for="login" class="form-label col-3 text-right"><wicket:message key="108" /></label>
+				<div class="col-8 p-0">
+					<input type="text" wicket:id="login" class="form-control"/>
+				</div>
+			</div>
+			<div class="formelement row">
+				<label wicket:for="password" class="form-label col-3 text-right"><wicket:message key="110" /></label>
+				<div class="col-8 p-0">
+					<input type="password" wicket:id="password" class="form-control"/>
+				</div>
+			</div>
+			<div class="formelement row">
+				<label wicket:for="otp-enabled" class="form-check-label col-3 text-right"><wicket:message key="otp.enabled" /></label>
+				<div class="col-8 p-0 form-check">
+					<input type="checkbox" class="formcheckbox form-check-input ms-0" wicket:id="otp-enabled" />
+				</div>
+			</div>
+			<form wicket:id="general"></form>
+			<div class="formelement row">
+				<label wicket:for="type" class="form-label col-3 text-right"><wicket:message key="45" /></label>
+				<div class="col-8 p-0">
+					<select wicket:id="type" class="form-select"></select>
+				</div>
+			</div>
+			<div class="formelement row" wicket:id="domain">
+				<label wicket:for="domainId" class="form-label col-3 text-right"><wicket:message key="1118" /></label>
+				<div class="col-8 p-0">
+					<select wicket:id="domainId" class="form-select"></select>
+				</div>
+			</div>
+			<div class="formelement row">
+				<label class="form-label col-3 text-right"><wicket:message key="1308" /></label>
+				<span wicket:id="ownerId" class="col-8"/>
+			</div>
+			<div class="formelement row">
+				<label class="form-label col-3 text-right"><wicket:message key="1110" /></label>
+				<span wicket:id="inserted" class="col-8"/>
+			</div>
+			<div class="formelement row">
+				<label class="form-label col-3 text-right"><wicket:message key="1112" /></label>
+				<span wicket:id="updated" class="col-8"/>
+			</div>
+			<div class="formelement row">
+				<label wicket:for="rights" class="form-label col-3 text-right"><wicket:message key="881" /></label>
+				<div class="om-select2 p-0 d-inline-block col-8"><select class="input w-100" wicket:id="rights"></select></div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend class="text-end">
+				<wicket:message key="1159" />
+			</legend>
+			<form wicket:id="comunity"></form>
+		</fieldset>
+		<div class="bottom-bumper"></div>
+	</div>
+</wicket:panel>
+</html>
